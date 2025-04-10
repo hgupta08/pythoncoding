@@ -1,0 +1,57 @@
+How Can You Prevent Method Overriding in Python?
+Python does not provide built-in support for preventing method overriding,
+ but you can achieve this behavior by convention or using a more complex design p
+ attern, such as using decorators to check if a method in a base class is being
+  overridden in a subclass.
+
+
+Example Using a Decorator to Discourage Overriding:
+def final_method(method):
+    method.is_final = True
+    return method
+
+class Parent:
+    @final_method
+    def show(self):
+        print("This method should not be overridden")
+
+class Child(Parent):
+    def show(self):
+        print("Trying to override")
+
+# Check if overriding is attempted
+if 'is_final' in getattr(Parent().show, '__dict__', {}):
+    raise TypeError("Method overriding has been prohibited for this method")
+
+child = Child()
+child.show()  # This will raise an error before execution if checked properly
+What is Encapsulation in Python?
+Encapsulation in Python refers to the bundling of data with the methods that
+operate on that data. It restricts direct access to some of the object’s components,
+ which can prevent the accidental modification of data.
+ In Python, encapsulation is typically achieved by prefixing names
+  of attributes or methods with a single underscore (weakly private) or
+   double underscore (strongly private) to suggest or
+    enforce that they are meant to be private.
+
+
+Example of Encapsulation:
+class Computer:
+    def __init__(self):
+        self.__max_price = 900  # Private attribute
+
+    def sell(self):
+        print(f"Selling Price: {self.__max_price}")
+
+    def set_max_price(self, price):
+        self.__max_price = price
+
+c = Computer()
+c.sell()
+
+# Trying to directly access a private variable
+# print(c.__max_price)  # This will raise an AttributeError
+
+# Using a method to modify a private variable
+c.set_max_price(1000)
+c.sell()  # Output: Selling Price: 1000

@@ -1,0 +1,17 @@
+In Python, a property is a language
+ construct that allows you to define methods in a class, which can be accessed like
+ attributes. It provides a way to add custom behavior to
+  attributes without changing the
+  class’s public API.
+
+
+The @property decorator turns a method into a getter for a managed attribute.
+ You can also define setter and deleter methods using @property_name.setter and
+ @property_name.deleter to control attribute assignment and deletion.
+
+
+You should use a property when you need to add logic to attribute access,
+ such as validation or transformation, without changing the class’s public API.
+ Properties are useful for computed attributes and managing read-only or write-only access.
+
+

@@ -1,0 +1,31 @@
+
+classattribute:
+When you access an attribute via an instance of the class, Python searches for the attribute
+ in the instance attribute list. If the instance attribute list doesn’t have that attribute,
+  Python continues looking up the attribute in the class attribute list. Python returns the
+   value of the attribute as long as it finds the attribute in the instance attribute list
+    or class attribute list.
+
+1) Storing class constants
+2) Tracking data across of all instances
+3) Defining default values
+
+#instance method
+In a class, an instance method is a function that takes the current
+ instance as its first argument. In Python, this first argument is called self by convention.
+ The self argument holds a reference to the current instance, allowing you to access that instance from within methods. More importantly, through self,
+ you can access and modify the instance attributes and call other methods within the class.
+
+To define an instance method, you just need to write a regular function that accepts self as
+ its first argument. Up to this point, you’ve already written some instance methods.
+
+@classnethod
+
+can be asscced therough class name as well as object name.Use  @classmethod to make it cmethod
+t. However, class methods should be accessed through the corresponding class name
+ for better clarity and to avoid confusion.
+ It can modify a class state that would apply across all the instances of the class.
+ For example, it can modify a class variable that would be applicable to all instances.
+ . In practice, you often use class methods for methods that create an instance of the class.
+
+
